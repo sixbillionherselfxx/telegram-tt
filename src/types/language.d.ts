@@ -251,6 +251,16 @@ export interface LangPair {
   'ChatNonContactUserGroups': undefined;
   'ContactInfoRegistration': undefined;
   'ContactInfoNotVerified': undefined;
+  'LookalikeTitle': undefined;
+  'LookalikeSuspectLabel': undefined;
+  'LookalikeAdminBadge': undefined;
+  'LookalikeReasonSameName': undefined;
+  'LookalikeReasonSimilarName': undefined;
+  'LookalikeReasonSimilarUsername': undefined;
+  'LookalikeReasonSamePhoto': undefined;
+  'LookalikeBlockAndReport': undefined;
+  'LookalikeOpenAdmin': undefined;
+  'LookalikeDismiss': undefined;
   'DeleteForAll': undefined;
   'AreYouSureDeleteSingleMessage': undefined;
   'ConversationDeleteMessagesForEveryone': undefined;
@@ -3477,6 +3487,16 @@ export interface LangPairWithVariables<V = LangVariable> {
   };
   'ChatListDeleteForEveryone': {
     'user': V;
+  };
+  'LookalikeSubtitle': {
+    'admin': V;
+    'group': V;
+  };
+  'LookalikeRealLabel': {
+    'group': V;
+  };
+  'LookalikeRegistered': {
+    'date': V;
   };
   'ConversationPinMessagesFor': {
     'user': V;

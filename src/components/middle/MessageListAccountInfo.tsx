@@ -38,6 +38,7 @@ import MiniTable, { type TableEntry } from '../common/MiniTable';
 import Link from '../ui/Link';
 import OptimizedVideo from '../ui/OptimizedVideo';
 import Skeleton from '../ui/placeholder/Skeleton';
+import LookalikeWarning from './LookalikeWarning';
 
 import styles from './MessageListAccountInfo.module.scss';
 
@@ -237,6 +238,14 @@ const MessageListAccountInfo = ({
             </div>
           )}
         </div>
+      )}
+      {!botInfo && (
+        <LookalikeWarning
+          userId={chatId}
+          commonChatIds={commonChats?.ids}
+          registrationMonth={registrationMonth}
+          withTopMargin={isChatInfoEmpty}
+        />
       )}
       {securityNameInfo}
       {securityPhotoInfo}
