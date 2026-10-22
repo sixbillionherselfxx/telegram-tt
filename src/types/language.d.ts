@@ -560,6 +560,16 @@ export interface LangPair {
   'AboutPremiumDescription2': undefined;
   'OpenUrlTitle': undefined;
   'OpenUrlWarning': undefined;
+  'LinkXrayShieldLabel': undefined;
+  'LinkXrayTitle': undefined;
+  'LinkXrayHoverHint': undefined;
+  'LinkXrayCheckAge': undefined;
+  'LinkXrayAgeHint': undefined;
+  'LinkXrayAgeFailed': undefined;
+  'LinkXrayOpenAnyway': undefined;
+  'LinkXraySettingsTitle': undefined;
+  'LinkXrayDomainAgeSetting': undefined;
+  'LinkXrayDomainAgeSettingInfo': undefined;
   'OpenUrlConfirm': undefined;
   'BotAuthAppSubtitle': undefined;
   'BotAuthSiteSubtitle': undefined;
@@ -3537,6 +3547,28 @@ export interface LangPairWithVariables<V = LangVariable> {
   'OpenUrlText': {
     'url': V;
   };
+  'LinkXrayLooksLike': {
+    'site': V;
+  };
+  'LinkXrayReasonLookalike': {
+    'site': V;
+  };
+  'LinkXrayReasonOtherEnding': {
+    'site': V;
+  };
+  'LinkXrayReasonFreeHosting': {
+    'host': V;
+  };
+  'LinkXrayReasonBrandMention': {
+    'site': V;
+    'host': V;
+  };
+  'LinkXrayAgeYear': {
+    'year': V;
+  };
+  'LinkXrayGoToReal': {
+    'site': V;
+  };
   'BotAuthTitle': {
     'url': V;
   };
@@ -5570,6 +5602,9 @@ export interface LangPairPluralWithVariables<V = LangVariable> {
     'count': V;
   };
   'StickerPackStickerCount': {
+    'count': V;
+  };
+  'LinkXrayAgeDays': {
     'count': V;
   };
   'PollCountriesCount': {

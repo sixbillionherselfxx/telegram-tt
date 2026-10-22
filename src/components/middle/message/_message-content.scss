@@ -998,6 +998,18 @@
   }
 }
 
+.link-xray-risky {
+  color: var(--color-error) !important;
+  text-decoration: underline dashed !important;
+  text-underline-offset: 0.1875rem;
+}
+
+.link-xray-shield {
+  display: inline-block;
+  margin-inline-end: 0.125rem;
+  vertical-align: -0.1875rem;
+}
+
 .word-break-all {
   word-break: break-all;
 }

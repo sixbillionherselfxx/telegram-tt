@@ -43,6 +43,7 @@ type StateProps = {
   shouldNewNonContactPeersRequirePremium?: boolean;
   shouldChargeForMessages: boolean;
   canDisplayChatInTitle?: boolean;
+  shouldCheckLinkDomainAge?: boolean;
   isCurrentUserFrozen?: boolean;
   needAgeVideoVerification?: boolean;
   privacy: GlobalState['settings']['privacy'];
@@ -70,6 +71,7 @@ const SettingsPrivacy = ({
   shouldNewNonContactPeersRequirePremium,
   shouldChargeForMessages,
   canDisplayChatInTitle,
+  shouldCheckLinkDomainAge,
   canSetPasscode,
   needAgeVideoVerification,
   privacy,
@@ -133,6 +135,12 @@ const SettingsPrivacy = ({
   const handleChatInTitleChange = useLastCallback((isChecked: boolean) => {
     setSharedSettingOption({
       canDisplayChatInTitle: isChecked,
+    });
+  });
+
+  const handleLinkDomainAgeChange = useLastCallback((isChecked: boolean) => {
+    setSharedSettingOption({
+      shouldCheckLinkDomainAge: isChecked,
     });
   });
 
@@ -507,6 +515,18 @@ const SettingsPrivacy = ({
       </Island>
 
       <IslandTitle dir={lang.isRtl ? 'rtl' : undefined}>
+        {lang('LinkXraySettingsTitle')}
+      </IslandTitle>
+      <Island>
+        <Checkbox
+          label={lang('LinkXrayDomainAgeSetting')}
+          subLabel={lang('LinkXrayDomainAgeSettingInfo')}
+          checked={Boolean(shouldCheckLinkDomainAge)}
+          onCheck={handleLinkDomainAgeChange}
+        />
+      </Island>
+
+      <IslandTitle dir={lang.isRtl ? 'rtl' : undefined}>
         {lang('DeleteMyAccount')}
       </IslandTitle>
       <Island>
@@ -543,7 +563,7 @@ export default memo(withGlobal<OwnProps>(
       appConfig,
     } = global;
 
-    const { canDisplayChatInTitle } = selectSharedSettings(global);
+    const { canDisplayChatInTitle, shouldCheckLinkDomainAge } = selectSharedSettings(global);
     const shouldChargeForMessages = Boolean(nonContactPeersPaidStars);
     const isCurrentUserFrozen = selectIsCurrentUserFrozen(global);
     const isCurrentUserPremium = selectIsCurrentUserPremium(global);
@@ -563,6 +583,7 @@ export default memo(withGlobal<OwnProps>(
       needAgeVideoVerification: Boolean(appConfig.needAgeVideoVerification),
       privacy,
       canDisplayChatInTitle,
+      shouldCheckLinkDomainAge,
       canSetPasscode: selectCanSetPasscode(global),
       isCurrentUserFrozen,
       accountDaysTtl,

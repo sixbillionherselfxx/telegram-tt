@@ -35,6 +35,7 @@ export interface SharedSettings {
   shouldCollectDebugLogs?: boolean;
   shouldDebugExportedSenders?: boolean;
   shouldWarnAboutFiles?: boolean;
+  shouldCheckLinkDomainAge?: boolean;
   shouldSkipBrowserCloseConfirmation: boolean;
   shouldKeepLockScreenBackground: boolean;
 }
